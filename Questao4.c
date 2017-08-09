@@ -1,52 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int eh_divisivel (int *num1, int *num2){
-
-     if(*num1 % *num2 == 0){
-     return 1;
-     }
-     else{
-        return 0;
-     }
+int Divisivel(int num1, int num2){
+    if(num1 % num2 == 0){
+        return 1;
+    }else{
+        return -1;
+    }
 }
-int eh_primo (int *num1){
-    int i, j = 0;
-    int eh_primo = 1;
-                for(i = 1; i <= *num1; i++){
-                if(eh_divisivel(num1, &i) == 1){
-                   j++;
-                }
-            }
-            if(j == 2){
-                    eh_primo = 1;
-                    return eh_primo;
-            }
-            else{
-                eh_primo = 0;
-                return eh_primo;
-            }
+
+int Primo(int num3){
+    int i, primo;
+
+    for(i = 1; i <= num3; i++){
+        if(Divisivel(num3, i) == 1){
+            primo++;
+        }
+    }
+    if(primo == 2){
+        return 1;
+    }else{
+        return -2;
+    }
 }
 
 int main (void){
-    int num, num1, num2;
+    int num1, num2, num3;
 
-    printf("Insira dois numeros: ");
+    printf("Insira o dividendo e o divisor: ");
     scanf("%d %d", &num1, &num2);
-
-    eh_divisivel(&num1, &num2);
-    if(eh_divisivel == 1){
-        printf("O %d eh divisivel por %d\n", num1, num2);
+    if(Divisivel(num1, num2) == 1){
+        printf("%d eh divisivel por %d\n", num1, num2);
     }else{
-        printf("O %d nao eh divisivel por %d\n", num1, num2);
+        printf("%d nao eh divisivel por %d\n", num1, num2);
     }
-    printf("Insira um numero: ");
-    scanf("%d", &num);
-    eh_primo(&num);
-    if(eh_primo == 1){
-         printf("O numero %d eh primo\n", num);
+
+    printf("Insira um numero para verificar se ele eh primo ou nao: ");
+    scanf("%d", &num3);
+    if(Primo(num3) == 1){
+        printf("O numero %d eh primo\n", num3);
     }else{
-         printf("O numero %d nao eh primo\n", num);
+        printf("O numero %d nao eh primo\n", num3);
     }
 
     return 0;
