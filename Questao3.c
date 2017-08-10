@@ -8,7 +8,7 @@ int Sequencia(int i)
     for (j=1; j<=i; j++)
     {
         for(k=1; k<=j; k++)
-            printf("%d",k);
+            printf("%d ",k);
         puts("");
 
     }
@@ -17,17 +17,13 @@ int Sequencia(int i)
 
 
 int main()
-
 {
     int valor;
 
-    printf("Informe um valor para a sequencia: ",valor);
+    printf("Informe um valor para a sequencia: ");
     scanf("%d",&valor);
 
     Sequencia(valor);
-
-
-
 
     return 0;
 }
