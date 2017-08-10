@@ -16,6 +16,10 @@ int main(void){
     for(i = 0; i < 10; i++){
         printf("Insira o sexo da pessoa #%d: ", i+1);
         scanf("%c", &pessoa.sexo[i]);
+        if(pessoa.sexo[i] != 'm' || 'M' || 'F' || 'f'){
+            puts("Opcao invalida");
+            return -1;
+        }
         printf("Insira a altura da pessoa #%d: ", i+1);
         scanf("%lf%*c", &pessoa.altura[i]);
     }
