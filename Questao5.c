@@ -1,35 +1,50 @@
-#include <stdlib.h>
-#include <stdio.h>
-#define TAMANHO 5
+#include<stdio.h>
+#include<stdlib.h>
 
+typedef struct{
+    char sexo[10];
+    double altura[10];
+} tPessoa;
 
+int main(void){
 
-int main()
-{
+    int i, m = 0, h = 0;
+    double maior = 0, menor = 100, mediaH = 0, mediaF = 0;
+    int sexo1, sexo2;
+    tPessoa pessoa;
 
-    float V_alt[TAMANHO];
-    char V_sexo[TAMANHO];
-    int maior, menor,i;
-
-    maior=0;
-    menor=0;
-
-    for(i=0; i<TAMANHO; i++)
-    {
-        printf("Informe a altura da %do pessoa: ",i+1);
-        scanf("%*c%f",&V_alt[i]);
-        printf("Informe o sexo da %do pessoa. [M/m] p/ MASCULINO e [F/f] p/FEMININO: ",i+1);
-        scanf("\n %c",&V_sexo[i]);
+    for(i = 0; i < 10; i++){
+        printf("Insira o sexo da pessoa #%d: ", i+1);
+        scanf("%c", &pessoa.sexo[i]);
+        printf("Insira a altura da pessoa #%d: ", i+1);
+        scanf("%lf%*c", &pessoa.altura[i]);
     }
 
-
-
-
-
-
-
-
+    for(i = 0; i < 10; i++){
+        if(pessoa.altura[i] > maior){
+            maior = pessoa.altura[i];
+            sexo1 = i;
+        }
+        if(pessoa.altura[i] < menor){
+            menor = pessoa.altura[i];
+            sexo2 = i;
+        }
+        if(pessoa.sexo[i] == 'F'){
+            mediaF += pessoa.altura[i];
+            m++;
+        }else{
+            mediaH += pessoa.altura[i];
+            h++;
+        }
+    }
+    mediaF = mediaF/(double)m;
+    mediaH = mediaH/(double)h;
+    printf("Maior altura: %.2lf \tSexo: %c\n"
+           "Menor altura: %.2lf \tSexo: %c\n", maior, pessoa.sexo[sexo1], menor, pessoa.sexo[sexo2]);
+    printf("Media altura sexo M = %.2lf\n"
+          "Media altura sexo F = %.2lf\n", mediaH, mediaF);
+    printf("Total de H = %d\n"
+           "Total de M = %d\n", h, m);
 
     return 0;
 }
-
