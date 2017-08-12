@@ -10,7 +10,7 @@ int Divisivel(int num1, int num2){
 }
 
 int Primo(int num3){
-    int i, primo;
+    int i, primo = 0;
 
     for(i = 1; i <= num3; i++){
         if(Divisivel(num3, i) == 1){
